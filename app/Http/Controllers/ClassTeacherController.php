@@ -20,15 +20,13 @@ class ClassTeacherController extends Controller
 
     public function add(Request $request){
         $data['getClass'] = ClassModel::getClass();
-        $data['getTeacherClass'] = User::getTeacherClass();
+        $data['getTeacher'] = User::getTeacherClass();
         $data['header_title'] = "Add Assign Class Teacher";
         return view('admin.assignTeacher.add', $data);
     }
 
     public function insert(Request $request){
         // dd($request->all());
-
-
         if(!empty($request->teacher_id)){
 
             foreach ($request->teacher_id as $teacher_id) {
@@ -47,7 +45,7 @@ class ClassTeacherController extends Controller
                         $store->save();
                 }       
             }
-            return redirect('admin/assign_class_teacher/list')->with('success', "Class to Teacher Assigned Successfully");
+            return redirect('admin/assign_class/list')->with('success', "Class to Teacher Assigned Successfully");
         }
         else{
             return redirect()->back()->with('error', "something wrong");

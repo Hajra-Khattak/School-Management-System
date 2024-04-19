@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\ClassTeacherController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -85,6 +86,15 @@ Route::group(['middleware' => 'admin'],function(){
     Route::get('/admin/assign_subject/edit_single/{id}', [ClassSubjectController::class, 'editSingle']);
     Route::post('/admin/assign_subject/edit_single/{id}', [ClassSubjectController::class, 'updateSingle']);
     
+    // Assign Class to Teacher
+    Route::get('/admin/assign_class/list', [ClassTeacherController::class, 'list']);
+    Route::get('/admin/assign_class/add', [ClassTeacherController::class, 'add']);
+    Route::post('/admin/assign_class/add', [ClassTeacherController::class, 'insert']);
+    Route::get('/admin/assign_class/edit/{id}', [ClassTeacherController::class, 'edit']);
+    Route::post('/admin/assign_class/edit/{id}', [ClassTeacherController::class, 'update']);
+    Route::get('/admin/assign_class/delete/{id}', [ClassTeacherController::class, 'delete']);
+
+
     Route::get('/admin/change_password', [UserController::class, 'change_password']);
     Route::post('/admin/change_password', [UserController::class, 'update_change_password']);
 
