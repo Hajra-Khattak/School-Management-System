@@ -30,7 +30,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title"> Assign New Class to Teacher </h3>
+                            <h3 class="card-title">Edit Assign Class  Teacher</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -43,17 +43,28 @@
                                     <select name="class_id" required class="form-control">
                                         <option value="">Select class</option>
                                         @foreach($getClass as $class)
-                                        <option value="{{$class->id}}">{{$class->name}}</option>
+                                        <option {{ ($getRecord->class_id == $class->id)? 'selected' : ''}} value="{{$class->id}}">{{$class->name}}</option>
 
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Select Teacher</label>
-                                    @foreach($getTeacher as $teacher)
+                                    @foreach($getTeacherClass as $teacher)
                                     <div>
                                         <label for="" style="font-weight: normal;">
-                                            <input type="checkbox" name="teacher_id[]" value="{{$teacher->id}}"> {{$teacher->name}} {{$teacher->last_name}}
+                                        @php 
+                                        $checked = '';
+                                        @endphp
+
+                                        @foreach($getAssignTeacherId as $teacherID)
+                                        @if($teacherID->teacher_id == $teacher->id)
+                                            @php 
+                                            $checked = 'checked';
+                                            @endphp
+                                        @endif
+                                        @endforeach
+                                            <input {{ $checked}} type="checkbox" name="teacher_id[]" value="{{$teacher->id}}"> {{$teacher->name}} {{$teacher->last_name}}
                                         </label>
                                     </div>
                                     @endforeach
@@ -62,8 +73,8 @@
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" id="" class="form-control">
-                                        <option value="0">Active</option>
-                                        <option value="1">InActive</option>
+                                        <option {{ ($getRecord->status == 0)? 'selected' : ''}} value="0">Active</option>
+                                        <option {{ ($getRecord->status == 1)? 'selected' : ''}} value="1">InActive</option>
                                     </select>
                                 </div>
 
@@ -73,7 +84,7 @@
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
                         </form>
                     </div>

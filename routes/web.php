@@ -94,6 +94,8 @@ Route::group(['middleware' => 'admin'],function(){
     Route::post('/admin/assign_class/edit/{id}', [ClassTeacherController::class, 'update']);
     Route::get('/admin/assign_class/delete/{id}', [ClassTeacherController::class, 'delete']);
 
+    Route::get('/admin/assign_class/edit_single/{id}', [ClassTeacherController::class, 'editSingle']);
+    Route::post('/admin/assign_class/edit_single/{id}', [ClassTeacherController::class, 'updateSingle']);
 
     Route::get('/admin/change_password', [UserController::class, 'change_password']);
     Route::post('/admin/change_password', [UserController::class, 'update_change_password']);

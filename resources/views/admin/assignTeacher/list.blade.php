@@ -37,6 +37,18 @@
                   </div>
                   <div class="form-group col-md-3">
                     <label >Teacher Name</label>
+                    <input type="text" class="form-control" name="subject_name" value="{{ Request::get('teacher_name') }}"  placeholder="Enter Subject Name">
+                  </div>
+                 
+                  <div class="form-group col-md-3">
+                    <label >Staus</label>
+                    <select  class="form-group" name="status">
+                      <option value="">Select</option>
+                      <option value="{{ (Request::get('status') == 100)? 'selected': '' }}">Active</option>
+                      <option value="{{ (Request::get('status') == 0)? 'selected': '' }}">InActive</option>
+                    </select>
+
+            
                     <input type="text" class="form-control" name="subject_name" value="{{ Request::get('subject_name') }}"  placeholder="Enter Subject Name">
                   </div>
                   
@@ -107,9 +119,9 @@
                       <td>{{ $value->created_by_name}}</td>
                       <td>{{ date('d-m-Y H:i A ', strtotime($value->created_at))}}</td>
                       <td style="text-align: center;">
-                    <a href="{{ url('admin/assign_subject/edit', $value->id)}}" class="btn btn-primary">Edit</a>
-                    <a href="{{ url('admin/assign_subject/edit_single', $value->id)}}" class="btn btn-info">Single Edit</a>
-                    <a href="{{ url('admin/assign_subject/delete', $value->id)}}" class="btn btn-danger">Delete</a>
+                    <a href="{{ url('admin/assign_class/edit', $value->id)}}" class="btn btn-primary">Edit</a>
+                    <a href="{{ url('admin/assign_class/edit_single', $value->id)}}" class="btn btn-info">Single Edit</a>
+                    <a href="{{ url('admin/assign_class/delete', $value->id)}}" class="btn btn-danger">Delete</a>
                     </td>
                       </tr>
                   @endforeach

@@ -28,4 +28,17 @@ class ClassTeacher extends Model
         return  ClassTeacher::where('class_id', '=', $class_id)
         ->where('teacher_id', '=', $teacher_id)->first();
     }
+
+    static public function getSingle($id){
+        return self::find($id);
+    } 
+
+    static public function getAssignTeacherId($class_id){
+        return self::where('class_id', '=', $class_id)->where('is_deleted', '=', 0)->get();
+    } 
+
+    static public function deleteTeacher($class_id){
+        return  self::where('class_id', '=', $class_id)->delete();
+         
+      }
 }
