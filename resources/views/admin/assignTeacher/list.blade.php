@@ -26,7 +26,7 @@
           <div class="card ">
 
           <div class="card-header">
-                <h3 class="card-title">Search Class List</h3>
+                <h3 class="card-title">Search Assign Class Teacher</h3>
               </div>
               <!-- form start -->
               <form action="" method="get">
@@ -37,29 +37,26 @@
                   </div>
                   <div class="form-group col-md-3">
                     <label >Teacher Name</label>
-                    <input type="text" class="form-control" name="subject_name" value="{{ Request::get('teacher_name') }}"  placeholder="Enter Subject Name">
+                    <input type="text" class="form-control" name="teacher_name" value="{{ Request::get('teacher_name') }}"  placeholder="Enter Subject Name">
                   </div>
                  
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-2">
                     <label >Staus</label>
-                    <select  class="form-group" name="status">
+                    <select  class="form-control" name="status">
                       <option value="">Select</option>
                       <option value="{{ (Request::get('status') == 100)? 'selected': '' }}">Active</option>
                       <option value="{{ (Request::get('status') == 0)? 'selected': '' }}">InActive</option>
                     </select>
-
-            
-                    <input type="text" class="form-control" name="subject_name" value="{{ Request::get('subject_name') }}"  placeholder="Enter Subject Name">
-                  </div>
+                    </div>
                   
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-2">
                     <label >Date</label>
                     <input type="date" class="form-control" name="date" value="{{ Request::get('date') }}" placeholder="Enter email">
                   </div>
                 
                 <!-- /.card-body -->
 
-                <div class="form-group col-md-3" style="margin-top: 30px;">
+                <div class="form-group col-md-2" style="margin-top: 30px;">
                   <button type="search" class="btn btn-primary">Search</button>
                   <a href="{{ url('admin/assign_class/list')}}" class="btn btn-success">Reset</a>
                 </div>
