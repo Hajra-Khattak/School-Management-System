@@ -116,7 +116,7 @@ class ClassTeacherController extends Controller
             $getAlreadyFirst->status = $request->status;
             $getAlreadyFirst->save();
             return redirect('admin/assign_class/list')->with('success', "Status Update Successfully");
-            
+      
         }
         else{
                 $store = ClassTeacher::getSingle($id);
@@ -132,8 +132,16 @@ class ClassTeacherController extends Controller
         $save = ClassTeacher::getSingle($id);
         $save->is_deleted = 1;
         $save->save();
-
         return redirect('admin/assign_class/list')->with('error', "Class to Teacher Assigned Deleted Successfully");
+
+    }
+
+    // Teacher side work
+    // MyClassSUbjects
+    public function MyClassSUbjects(){
+        $data['getRecord'] = ClassTeacher::getClassSubject(Auth::user()->id);
+        $data['header_title'] = "Add Assign Class Teacher";
+        return view('admin.teacher.my_class_subjects', $data);
 
     }
 }
