@@ -174,38 +174,50 @@
           </a>
         </li>
 
-        <li class="nav-item">
-          <a href="{{url('admin/class/list')}}" class="nav-link @if(Request::segment(2) == 'class') active @endif " >
-            <i class="nav-icon far fa-user"></i>
-            <p>
-              Class
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="{{url('admin/subject/list')}}" class="nav-link @if(Request::segment(2) == 'subject') active @endif " >
-            <i class="nav-icon far fa-user"></i>
-            <p>
-              Subject
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="{{url('admin/assign_subject/list')}}" class="nav-link @if(Request::segment(2) == 'assign_subject') active @endif " >
-            <i class="nav-icon far fa-user"></i>
-            <p>
-              Assign Subject
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="{{url('admin/assign_class/list')}}" class="nav-link @if(Request::segment(2) == 'assign_class') active @endif " >
-            <i class="nav-icon far fa-user"></i>
-            <p>
-              Assign Class
-            </p>
-          </a>
-        </li>
+
+        <li class="nav-item   @if(Request::segment(2) == 'class' || Request::segment(2) == 'subject' || Request::segment(2) == 'assign_subject' || Request::segment(2) == 'assign_class' || Request::segment(2) == 'class_timetable') menu-is-opening menu-open @endif ">
+            <a href="#" class="nav-link  @if(Request::segment(2) == 'class' || Request::segment(2) == 'subject' || Request::segment(2) == 'assign_subject' || Request::segment(2) == 'assign_class' || Request::segment(2) == 'class_timetable') active @endif ">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Academic
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('admin/class/list')}}" class="nav-link @if(Request::segment(2) == 'class') active @endif ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Class </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/subject/list')}}" class="nav-link @if(Request::segment(2) == 'subject') active @endif ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Subject </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/assign_subject/list')}}" class="nav-link @if(Request::segment(2) == 'assign_subject') active @endif " >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Assign Subject</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/class_timetable/list')}}" class="nav-link @if(Request::segment(2) == 'class_timetable') active @endif " >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Class TimeTable</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/assign_class/list')}}" class="nav-link @if(Request::segment(2) == 'assign_class') active @endif ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Assign Class</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
         <li class="nav-item">
           <a href="{{url('admin/change_password')}}" class="nav-link @if(Request::segment(2) == 'change_password') active @endif " >
             <i class="nav-icon far fa-user"></i>
@@ -239,6 +251,14 @@
             <i class="nav-icon fas fa-user"></i>
             <p>
               My Class and Subjects
+            </p>
+          </a>
+        </li>
+         <li class="nav-item">
+          <a href="{{url('teacher/my_students')}}" class="nav-link @if(Request::segment(2) == 'my_students') active @endif" >
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              My Students
             </p>
           </a>
         </li>

@@ -10,7 +10,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
           
-            <h1>Class List  (Total:  )</h1>
+            <h1>Assign Subject to Class List  (Total:  )</h1>
           </div>
           <div class="col-sm-6 " style="text-align: end;">
 
@@ -19,14 +19,14 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
+    
     <section>
     <div class="container-fluid p-3">
 
           <div class="card ">
 
           <div class="card-header">
-                <h3 class="card-title">Search Class List</h3>
+                <h3 class="card-title">Search Assign Subject List</h3>
               </div>
               <!-- form start -->
               <form action="" method="get">

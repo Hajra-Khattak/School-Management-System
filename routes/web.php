@@ -11,6 +11,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\ClassTeacherController;
+use App\Http\Controllers\ClassTimeTableController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -94,6 +95,10 @@ Route::group(['middleware' => 'admin'],function(){
     Route::post('/admin/assign_class/edit/{id}', [ClassTeacherController::class, 'update']);
     Route::get('/admin/assign_class/delete/{id}', [ClassTeacherController::class, 'delete']);
 
+    // class_timetable
+    Route::get('/admin/class_timetable/list', [ClassTimeTableController::class, 'list']);
+    Route::get('/admin/class_timetable/list', [ClassTimeTableController::class, 'list']);
+
     Route::get('/admin/assign_class/edit_single/{id}', [ClassTeacherController::class, 'editSingle']);
     Route::post('/admin/assign_class/edit_single/{id}', [ClassTeacherController::class, 'updateSingle']);
 
@@ -149,6 +154,7 @@ Route::group(['middleware' => 'teacher'],function(){
 
 
     Route::get('/teacher/my_class_subjects', [ClassTeacherController::class, 'MyClassSUbjects']);
+    Route::get('/teacher/my_students', [StudentController::class, 'MyStudents']);
 });
 
 Route::group(['middleware' => 'student'],function(){

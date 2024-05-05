@@ -178,4 +178,10 @@ class StudentController extends Controller
         $data['header_title'] = "My Subjects ";
         return view('student.mysubjects', $data);
     }
+
+    public function MyStudents(){
+        $data['getRecord'] = User::getTeacherStudent(Auth::user()->id);
+        $data['header_title'] = "My Student List";
+        return view('admin.teacher.mystudents', $data); 
+    }
 }
