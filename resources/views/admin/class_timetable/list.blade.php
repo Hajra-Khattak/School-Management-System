@@ -88,3 +88,25 @@
 
 
   @endsection
+
+    @section('script')
+      <script type="text/javascript">
+        $('.getClass').change(function(){
+          var value = $(this).val();
+          console.log(value);
+
+          $,ajaz({
+            url: "{{ url('')}}",
+            type: "POST",
+            date:{
+              "_token": "{{ csrf_token() }}",
+              value: value,
+            },
+            dataType: "json",
+            success:function
+          })
+        });
+
+      </script>
+    @endsection
+
